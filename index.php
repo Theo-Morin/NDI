@@ -1,13 +1,13 @@
 <?php
 
 require_once './components/models/_db.php';
-require_once './components/models/Contact.php';
-require_once './components/models/Galerie.php';
-require_once './components/models/Partenaire.php';
-require_once './components/models/Prestation.php';
+require_once './components/models/Other.php';
+require_once './components/models/MeteoAPI.php';
+require_once './components/models/User.php';
+require_once './components/models/SurfData.php';
 require_once './components/controllers/home_controller.php';
 
-define('SERVER_URL', "http://simultaux.fr/");
+define('SERVER_URL', "localhost");
 
 $title = "NDI | ";
 $view = 'error_docs/404.php';
