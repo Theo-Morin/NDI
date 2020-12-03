@@ -1,6 +1,6 @@
 <?php
 
-$uc1 = isset($_GET['uc1']) ? htmlspecialchars($_GET['uc1']) : "home";
+$uc2 = isset($_GET['uc2']) ? htmlspecialchars($_GET['uc2']) : "home";
 switch($uc1)
 {
     case "login":
