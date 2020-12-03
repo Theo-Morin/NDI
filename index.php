@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once './components/models/_db.php';
 require_once './components/models/Other.php';
