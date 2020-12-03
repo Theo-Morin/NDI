@@ -22,7 +22,7 @@ $scripts[] = "/public/assets/js/site.js";
 include('./components/views/partials/head.php');
 include('./components/views/partials/nav.php');
 include('./components/views/' . $view);
-include('./components/views/partials/head.php');
+include('./components/views/partials/footer.php');
 
 
 ?>

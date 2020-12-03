@@ -6,14 +6,12 @@ switch($uc1)
     case "home":
         $view = "home.php";
     break;
-    case "client":
-        require 'client_controller.php';
+    case "informations-surf":
+        $title += "Renseignez vos informations de Ride";
+        $view = "form.php";
     break;
-    case "agence":
-        require 'agence_controller.php';
-    break;
-    case "admin":
-        require 'admin_controller.php';
+    case "user":
+        require "user_controller.php";
     break;
     default:
         $title += "Page not found";
