@@ -6,12 +6,14 @@ require_once './components/models/Other.php';
 require_once './components/models/MeteoAPI.php';
 require_once './components/models/User.php';
 require_once './components/models/SurfData.php';
-require_once './components/controllers/home_controller.php';
 
 define('SERVER_URL', "localhost");
 
 $title = "NDI | ";
 $view = 'error_docs/404.php';
+
+require_once './components/controllers/home_controller.php';
+
 $stylesheet = [];
 $stylesheet[] = "/public/vendors/bootstrap/bootstrap.css";
 $stylesheet[] = "/public/assets/css/style.css";
