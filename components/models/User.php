@@ -50,6 +50,21 @@ class User {
         $res = $req->Fetch();
         return $res['nb'];
     }
+    static function edit_user($email,$fullname,$passwd){
+        $verif = MySQL::getInstance()->prepare('SELECT passwd FROM user WHERE user_id = ?');
+        $verif->execute(array($_SESSION['user_id']));
+        $res = $verif->Fetch();
+        if(password_verify($passwd,$res['passwd'])){
+            $req = MySQL::getInstance()->prepare('UPDATE user SET email = ?, fullname = ? WHERE user_id= ?');
+            $req->execute(array($email,$fullname,$_SESSION['user_id']));
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
 
 }
 
