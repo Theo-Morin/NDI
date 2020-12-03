@@ -1,7 +1,7 @@
 <?php
 
 $uc2 = isset($_GET['uc2']) ? htmlspecialchars($_GET['uc2']) : "home";
-switch($uc1)
+switch($uc2)
 {
     case "login":
         $title .= "Login / Sign-up";
