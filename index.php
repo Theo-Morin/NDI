@@ -5,7 +5,6 @@ require_once './components/models/Other.php';
 require_once './components/models/MeteoAPI.php';
 require_once './components/models/User.php';
 require_once './components/models/SurfData.php';
-require_once './components/controllers/home_controller.php';
 
 define('SERVER_URL', "localhost");
 
@@ -18,6 +17,8 @@ $scripts = [];
 $scripts[] = "/public/vendors/jquery.js";
 $scripts[] = "/public/vendors/bootstrap/bootstrap.js";
 $scripts[] = "/public/assets/js/site.js";
+
+require_once './components/controllers/home_controller.php';
 
 include('./components/views/partials/head.php');
 include('./components/views/partials/nav.php');
