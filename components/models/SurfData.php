@@ -45,7 +45,7 @@ class Spots {
     }
 
     static function getDatas() {
-        $req = MySQL::getInstance()->prepare('SELECT surf_spot_id, spot_name, lng, lat, user_id, date_creation, count(*) as nbLikes FROM surf_spot NATURAL JOIN surf_spot_like GROUP BY (surf_spot_id, spot_name, lng, lat, user_id, date_creation)');
+        $req = MySQL::getInstance()->prepare('SELECT surf_spot_id, spot_name, lng, lat, user_id, date_creation, count(*) as nbLikes FROM surf_spot NATURAL JOIN surf_spot_like GROUP BY (surf_spot_id, spot_name, lng, lat, user_id, date_creation) ORDER BY count(*) DESC');
         $req->execute();
 
         return $req->FetchAll();
@@ -56,6 +56,13 @@ class Spots {
         $req->execute(array($id));
         
         return $req->Fetch();
+    }
+
+    static function getNbSpots() {
+        $req = MySQL::getInstance()->prepare('SELECT count(*) as nb FROM surf_spot ORDER BY id DESC');
+        $req->execute();
+
+        return $req->Fetch()['nb'];
     }
 }
 
