@@ -10,7 +10,7 @@
                                 <input type="text" name="city" placeholder="Choisir une ville" value="<?php if(isset($_SESSION['city'])) echo $_SESSION['city']; ?>" class="form-control">
                             </div>
                             <div class="col-4">
-                                <button class="btn btn-primary">Send</button>
+                                <button class="btn btn-primary btn-block">Send</button>
                             </div>
                         </div>
                         

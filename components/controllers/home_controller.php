@@ -28,12 +28,14 @@ switch($uc1)
     break;
     case "informations-surf":
         $view = "Remplir le formulaire";
-        if(!$isLogged) exit(header('Location: /user/login'));
+        if(!isset($_SESSION['user_id'])) exit(header('Location: /user/login'));
         $title += "Renseignez vos informations de Ride";
         $view = "form.php";
         $spots = Spots::getDatas();
         /**
-         * City, Spot, Products, date_entree, date_sortie
+         * City, Spot, Products,
+         * 
+         * date_entree, date_sortie
          */
         if(isset($_POST['city'], $_POST['date_entree'], $_POST['date_sortie'])) {
             $city = htmlspecialchars($_POST['city']);
@@ -42,7 +44,6 @@ switch($uc1)
             $date_sortie = htmlspecialchars($_POST['date_sortie']);
             if(isset($_POST['spot_id'])) {
                 $spot_id = htmlspecialchars($_POST['spot_id']);
-
             }
             else {
                 if(!empty($_POST['spot']['name']) && !empty($_POST['spot']['lng']) && !empty($_POST['spot']['lat'])) {
@@ -53,11 +54,14 @@ switch($uc1)
                     $spot_id = Spots::getLastSpot();
                 }
                 else {
-                    // Error
+                    $_SESSION['error'] = "Veuillez entrer toutes les données nécessaires à la création d'un nouveau spot";
                 }
             }
             if(!empty($city) && !empty($spot_id) && !empty($date_entree) && !empty($date_sortie)) {
                 SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie);
+            }
+            else {
+                $_SESSION['error'] = "Veuillez remplir tous les champs";
             }
         }
     break;
