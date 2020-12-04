@@ -7,7 +7,7 @@
     </div>
     <?php } else { ?>
     <div>
-        <a href="/user/logout"><button class="btn btn-dark">Sign-out</button></a>
+        <a href="/user/signout"><button class="btn btn-dark">Sign-out</button></a>
     </div>
     <?php } ?>
 </nav>
