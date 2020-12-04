@@ -53,7 +53,7 @@ switch($uc2)
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
             if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
-                if(user::signin($user['email'],$verifpasswd)){
+                if(user::signin($email,$verifpasswd)){
                     user::edit_user($email,$fullname,$verifpasswd);
                 }
                 else $_SESSION['error'] = "Veuillez entrer des identifiants valides";
