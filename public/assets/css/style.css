@@ -24,6 +24,7 @@ body {
 }
 
 nav {display:flex;flex-direction: row;justify-content: space-between;}
+nav a:link, nav a:visited {color:black;text-decoration: none;}
 
 div.menu {
     position: absolute;

@@ -4,7 +4,7 @@
         <div class="col-4">
             <div class="card home-card fst">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[0]['spot_name'] ?></div>
                     <i>1st</i>
                 </div>
             </div>
@@ -12,7 +12,7 @@
         <div class="col-4">
             <div class="card home-card snd">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[1]['spot_name'] ?></div>
                     <i>2nd</i>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="col-4">
             <div class="card home-card thd">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[2]['spot_name'] ?></div>
                     <i>3rd</i>
                 </div>
             </div>
@@ -31,29 +31,21 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">City</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Latitude</th>
                 <th scope="col">Nb likes</th>
             </tr>
         </thead>
         <tbody>
+            <?php foreach($spots as $spot) { ?> 
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row"><?= $spot['surf_spot_id'] ?></th>
+                <td><?= $spot['spot_name'] ?></td>
+                <td><?= $spot['lng'] ?></td>
+                <td><?= $spot['lat'] ?></td>
+                <td><?= $spot['nbLikes'] ?></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            <?php } ?>
         </tbody>
     </table>      
 </div>
