@@ -36,7 +36,7 @@ switch($uc2)
             $email = htmlspecialchars($_POST['email']);
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
-            if(!empty($email) && !empty($verifpasswd) !empty($fullname)){
+            if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
                 user::signin($email,$fullname,$verifpasswd);
             }
         }
