@@ -15,3 +15,8 @@
 <div id="loader">
     <h1>Surfrider</h1>
 </div>
+<?php if(isset($_SESSION['error']) && !empty($_SESSION['error'])) { ?>
+    <div class="alert alert-danger" role="alert">
+        <?= $_SESSION['error'] ?>
+    </div>
+<?php } $_SESSION['error'] = ""; ?>
