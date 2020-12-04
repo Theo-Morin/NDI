@@ -4,7 +4,7 @@ class MeteoAPI {
     private static $weatherKey = "f301ac13c620464b952172921200312";
     static function getCurrentWeather($city) {
         $url = "http://api.weatherapi.com/v1/current.json?key=".MeteoAPI::$weatherKey."&q=$city";
-        $ch = curl_init();    
+        $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         curl_setopt($ch, CURLOPT_URL, $url); 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

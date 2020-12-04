@@ -5,7 +5,7 @@
 *	$monMySQL qui contiendra l'unique instance de la classe
 */
 class MySQL {
-    private static $serveur='mysql:host=51.210.38.134';
+    private static $serveur='mysql:host=localhost';
     private static $bdd='dbname=ndi';
     private static $user='root';
     private static $mdp='root';

@@ -3,7 +3,7 @@
         <div class="col-xl-4 col-lg-6 mt-3">
             <div class="card home-card">
                 <div class="card-body">
-                    <div class="card-title">Friday 4, 21h00</div>
+                    <div class="card-title"><?= date("D d F", false, 'Europe/Paris') ?>, <?= date("H", false, 'Europe/Paris') ?>h<?= date("i", false, 'Europe/Paris') ?></div>
                     <h1 style="display: inline;"><?= $weather['temp'] ?></h1><span style="vertical-align: top;">°c</span>
                     <h4 class="bottom"><?= $weather['location'] ?></h4>
                     <img src="https:<?= $weather['icon'] ?>" alt="">
