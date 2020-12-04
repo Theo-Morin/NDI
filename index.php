@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Europe/Paris');
 
 require_once './components/models/_db.php';
 require_once './components/models/Other.php';
@@ -7,9 +8,9 @@ require_once './components/models/MeteoAPI.php';
 require_once './components/models/User.php';
 require_once './components/models/SurfData.php';
 
-define('SERVER_URL', "localhost");
+define('SERVER_URL', "http://51.210.38.134/");
 
-$title = "NDI | ";
+$title = "Surfrider | ";
 $view = 'error_docs/404.php';
 
 require_once './components/controllers/home_controller.php';

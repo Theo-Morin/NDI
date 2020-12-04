@@ -7,11 +7,18 @@ switch($uc1)
         $view = "home.php";
         $nbSpots = Spots::getNbSpots();
         $nbUsers = User::nb_users();
-        $weather = MeteoAPI::getCurrentWeather("Bordeaux");
+
+        if(isset($_POST['city'])) {
+            $city = htmlspecialchars($_POST['city']);
+            $_SESSION['city'] = $city;
+        }
+        if(isset($_SESSION['city'])) {
+            $weather = MeteoAPI::getCurrentWeather($_SESSION['city']);
+        } else $weather = MeteoAPI::getCurrentWeather("Bordeaux");
     break;
     case "spots":
         $view = "spots.php";
-        $spots = Spots::getDatas();
+        $spots = Spots::getDatasByLikes();
     break;
     case "informations-surf":
         if(!$isLogged) exit(header('Location: /user/login'));

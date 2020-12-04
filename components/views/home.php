@@ -1,9 +1,21 @@
 <div class="container menu">
+    <div class="form">
+        <form method="POST">
+            <div class="row">
+                <div class="col-xl-8 col-lg-6 col-md-0"></div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="form-group">
+                        <input type="text" name="city" placeholder="Choisir une ville" value="<?php if(isset($_SESSION['city'])) echo $_SESSION['city']; ?>" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="row m-3">
         <div class="col-xl-4 col-lg-6 mt-3">
             <div class="card home-card">
                 <div class="card-body">
-                    <div class="card-title"><?= date("D d F", false, 'Europe/Paris') ?>, <?= date("H", false, 'Europe/Paris') ?>h<?= date("i", false, 'Europe/Paris') ?></div>
+                    <div class="card-title"><?= date("D d") ?>, <?= date("H") ?>h<?= date("i") ?></div>
                     <h1 style="display: inline;"><?= $weather['temp'] ?></h1><span style="vertical-align: top;">°c</span>
                     <h4 class="bottom"><?= $weather['location'] ?></h4>
                     <img src="https:<?= $weather['icon'] ?>" alt="">
