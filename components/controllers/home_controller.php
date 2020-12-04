@@ -60,11 +60,11 @@ switch($uc1)
                 }
             }
             if(!empty($city) && !empty($spot_id) && !empty($date_entree) && !empty($date_sortie)) {
-                $baigneurs = isset($_POST['baigneurs']) ? htmlspecialchars($_POST['baigneurs']) : 0;
-                $praticants = isset($_POST['praticants']) ? htmlspecialchars($_POST['praticants']) : 0;
-                $bateaux_peche = isset($_POST['bateaux_peche']) ? htmlspecialchars($_POST['bateaux_peche']) : 0;
-                $bateaux_loisir = isset($_POST['bateaux_loisir']) ? htmlspecialchars($_POST['bateaux_loisir']) : 0;
-                $bateaux_voile = isset($_POST['bateaux_voile']) ? htmlspecialchars($_POST['bateaux_voile']) : 0;
+                $baigneurs = isset($_POST['baigneurs']) && !empty($_POST['baigneurs']) ? htmlspecialchars($_POST['baigneurs']) : 0;
+                $praticants = isset($_POST['praticants']) && !empty($_POST['praticants']) ? htmlspecialchars($_POST['praticants']) : 0;
+                $bateaux_peche = isset($_POST['bateaux_peche']) && !empty($_POST['bateaux_peche']) ? htmlspecialchars($_POST['bateaux_peche']) : 0;
+                $bateaux_loisir = isset($_POST['bateaux_loisir']) && !empty($_POST['bateaux_loisir']) ? htmlspecialchars($_POST['bateaux_loisir']) : 0;
+                $bateaux_voile = isset($_POST['bateaux_voile']) && !empty($_POST['bateaux_voile']) ? htmlspecialchars($_POST['bateaux_voile']) : 0;
                 SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie, $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile);
                 exit(header('Location: /home'));
             }
@@ -83,17 +83,6 @@ switch($uc1)
     break;
     case "user":
         require "user_controller.php";
-    break;
-    case "loadFixtures":
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Creme Solaire")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Parfum/Deodorant")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Creme hydratante")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Maquillage")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Essence")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Cigarette")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Engrais/Pesticides")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Peintures")');
-        $req = MySQL::getInstance()->query('INSERT INTO datas_products(libelle) VALUES("Autre")');
     break;
     default:
         $title += "Page not found";

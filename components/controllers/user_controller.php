@@ -44,22 +44,28 @@ switch($uc2)
     break;
     case "change-informations":
         $view = "user/form.php";
-        if(!isset($isLogged)){
-            exit(header('Location: /user/login'));
-        }
         $user = User::get_user($_SESSION['user_id']);
         if(isset($_POST['email'],$_POST['fullname'],$_POST['verifpasswd'])){
             $email = htmlspecialchars($_POST['email']);
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
             if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
-                if(user::signin($email,$verifpasswd)){
-                    user::edit_user($email,$fullname,$verifpasswd);
-                }
-                else $_SESSION['error'] = "Veuillez entrer des identifiants valides";
+                user::edit_user($email,$fullname,$verifpasswd);
             }
             else $_SESSION['error'] = "Veuillez remplir tous les champs";
             exit(header('Location: /user/change-informations'));
+        }
+        else if(isset($_POST['passwd'], $_POST['newpasswd'], $_POST['confpasswd'])) {
+            $passwd = htmlspecialchars($_POST['passwd']);
+            $newpasswd = htmlspecialchars($_POST['newpassd']);
+            $confpasswd = htmlspecialchars($_POST['confpasswd']);
+            if($newpasswd == $confpasswd) {
+                User::changePasswd($newpasswd);
+                exit(header('Location: /home'));
+            }else {
+                $_SESSION['error'] = "Les mots de passe ne sont pas identiques";
+                exit(header('Location: /user/change-informations'));
+            } 
         }
 
     break;

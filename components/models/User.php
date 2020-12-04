@@ -44,6 +44,12 @@ class User {
         }
     }
 
+    static function changePasswd($newpasswd) {
+        $pwd = password_hash($newpasswd,PASSWORD_DEFAULT);
+        $req = MySQL::getInstance()->prepare('UPDATE user SET passwd = ? WHERE user_id = ?');
+        $req->execute(array($pwd, $_SESSION['user_id']));
+    }
+
     /**
      * Récupère les infos d'un utilisateur
      */
