@@ -17,7 +17,7 @@ switch($uc1)
         if(!$isLogged) exit(header('Location: /user/login'));
         $title += "Renseignez vos informations de Ride";
         $view = "form.php";
-        //$spots = Spots::getDatas();
+        $spots = Spots::getDatas();
         /**
          * City, Spot, Products, date_entree, date_sortie
          */
