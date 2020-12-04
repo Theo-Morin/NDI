@@ -33,21 +33,6 @@
         <div class="col-xl-4 col-lg-6 mt-3">
             <div class="card home-card">
                 <div class="card-body">
-                    <i class="fas fa-user-alt"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mt-3">
-            <div class="card home-card">
-                <div class="card-body">
-                    <div class="card-title">Nb app users</div>
-                    <i><?= $nbUsers ?></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mt-3">
-            <div class="card home-card">
-                <div class="card-body">
                     <div class="card-title">Houle</div>
                     <h1 style="display: inline;">10</h1><span style="vertical-align: top;">cm</span>
                     <h4 class="bottom"><?= $weather['location'] ?></h4>
@@ -56,9 +41,28 @@
             </div>
         </div>
         <div class="col-xl-4 col-lg-6 mt-3">
+            <a href="/user/change-informations">
+                <div class="card home-card">
+                    <div class="card-body">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-4 col-lg-6 mt-3">
+            <a href="/informations-surf">
+                <div class="card home-card">
+                    <div class="card-body">
+                        <i class="fas fa-clipboard"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-4 col-lg-6 mt-3">
             <div class="card home-card">
                 <div class="card-body">
-                    <i class="fas fa-clipboard"></i>
+                    <div class="card-title">Nb app users</div>
+                    <i><?= $nbUsers ?></i>
                 </div>
             </div>
         </div>
