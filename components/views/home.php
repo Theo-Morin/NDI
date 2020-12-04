@@ -4,9 +4,9 @@
             <div class="card home-card">
                 <div class="card-body">
                     <div class="card-title">Friday 4, 21h00</div>
-                    <h1 style="display: inline;">9</h1><span style="vertical-align: top;">°c</span>
-                    <h4 class="bottom">Bordeaux</h4>
-                    <img src="http://placehold.it/50x50" alt="">
+                    <h1 style="display: inline;"><?= $weather['temp'] ?></h1><span style="vertical-align: top;">°c</span>
+                    <h4 class="bottom"><?= $weather['location'] ?></h4>
+                    <img src="https:<?= $weather['icon'] ?>" alt="">
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="card home-card">
                 <div class="card-body">
                     <div class="card-title">Nb app users</div>
-                    <i>10.000</i>
+                    <i><?= $nbUsers ?></i>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <div class="card-title">Houle</div>
                     <h1 style="display: inline;">10</h1><span style="vertical-align: top;">cm</span>
-                    <h4 class="bottom">Bordeaux</h4>
+                    <h4 class="bottom"><?= $weather['location'] ?></h4>
                     <i class="fas fa-water right"></i>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="card home-card">
                 <div class="card-body">
                     <div class="card-title">Referenced spots</div>
-                    <i>200</i>
+                    <i><?= $nbSpots ?></i>
                 </div>
             </div>
         </div>

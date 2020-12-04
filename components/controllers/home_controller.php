@@ -5,13 +5,13 @@ switch($uc1)
 {
     case "home":
         $view = "home.php";
-        /*$nbSpots = Spots::getNbSpots();
+        $nbSpots = Spots::getNbSpots();
         $nbUsers = User::nb_users();
-        $weather = MeteoAPI::getCurrentWeather("Bordeaux");*/
+        $weather = MeteoAPI::getCurrentWeather("Bordeaux");
     break;
     case "spots":
         $view = "spots.php";
-        //$spots = Spots::getDatas();
+        $spots = Spots::getDatas();
     break;
     case "informations-surf":
         if(!$isLogged) exit(header('Location: /user/login'));
@@ -35,15 +35,15 @@ switch($uc1)
                     $name = htmlspecialchars($_POST['spot']['name']);
                     $lng = htmlspecialchars($_POST['spot']['lng']);
                     $lat = htmlspecialchars($_POST['spot']['lat']);
-                    //Spots::saveDatas($name, $lng, $lat);
-                    //$spot_id = Spots::getLastSpot();
+                    Spots::saveDatas($name, $lng, $lat);
+                    $spot_id = Spots::getLastSpot();
                 }
                 else {
                     // Error
                 }
             }
             if(!empty($city) && !empty($spot_id) && !empty($date_entree) && !empty($date_sortie)) {
-                //SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie);
+                SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie);
             }
         }
     break;
