@@ -41,9 +41,9 @@ switch($uc1)
         if(isset($_POST['city'], $_POST['date_entree'], $_POST['date_sortie'])) {
             $city = htmlspecialchars($_POST['city']);
             $products = htmlspecialchars($_POST['products']);
-            $date_entree = htmlspecialchars($_POST['date_entree']);
-            $date_sortie = htmlspecialchars($_POST['date_sortie']);
-            if(isset($_POST['spot_id'])) {
+            $date_entree = DateTime::createFromFormat("d/m/Y h:i", htmlspecialchars($_POST['date_entree']));
+            $date_sortie = DateTime::createFromFormat("d/m/Y h:i", htmlspecialchars($_POST['date_sortie']));
+            if(isset($_POST['spot_id']) && $_POST['spot_id'] != "new" && $_POST['spot_id'] != 0) {
                 $spot_id = htmlspecialchars($_POST['spot_id']);
             }
             else {

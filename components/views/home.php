@@ -67,12 +67,14 @@
             </div>
         </div>
         <div class="col-xl-4 col-lg-6 mt-3">
-            <div class="card home-card">
-                <div class="card-body">
-                    <div class="card-title">Referenced spots</div>
-                    <i><?= $nbSpots ?></i>
+            <a href="/spots">
+                <div class="card home-card">
+                    <div class="card-body">
+                        <div class="card-title">Referenced spots</div>
+                        <i><?= $nbSpots ?></i>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
