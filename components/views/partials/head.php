@@ -11,4 +11,7 @@
         <link rel="stylesheet" href="<?= $style ?>">
     <?php } ?>
 </head>
-<body>
+<body onload="closeLoader()">
+<div id="loader">
+    <h1>Surfrider</h1>
+</div>

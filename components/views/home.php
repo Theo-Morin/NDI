@@ -33,10 +33,10 @@
         <div class="col-xl-4 col-lg-6 mt-3">
             <div class="card home-card">
                 <div class="card-body">
-                    <div class="card-title">Houle</div>
-                    <h1 style="display: inline;">10</h1><span style="vertical-align: top;">cm</span>
+                    <div class="card-title">Wind</div>
+                    <h1 style="display: inline;"><?= $weather['wind_kph'] ?></h1><span style="vertical-align: top;">kph</span>
                     <h4 class="bottom"><?= $weather['location'] ?></h4>
-                    <i class="fas fa-water right"></i>
+                    <i class="fas fa-wind right"></i>
                 </div>
             </div>
         </div>

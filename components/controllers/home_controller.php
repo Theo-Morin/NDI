@@ -5,6 +5,7 @@ switch($uc1)
 {
     case "home":
         $view = "home.php";
+        $title .= "Home";
         $nbSpots = Spots::getNbSpots();
         $nbUsers = User::nb_users();
 
@@ -21,10 +22,12 @@ switch($uc1)
         } else $weather = MeteoAPI::getCurrentWeather("Bordeaux");
     break;
     case "spots":
+        $title .= "Spots";
         $view = "spots.php";
         $spots = Spots::getDatasByLikes();
     break;
     case "informations-surf":
+        $view = "Remplir le formulaire";
         if(!$isLogged) exit(header('Location: /user/login'));
         $title += "Renseignez vos informations de Ride";
         $view = "form.php";

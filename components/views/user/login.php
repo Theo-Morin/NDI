@@ -1,9 +1,9 @@
 <div class="container">
     <div class="card mt-5 home-card login-form">
         <div class="card-body">
-            <div class="row choose text-center">
-                <div class="col-6" id="choose-signin" style="font-weight:bold;">Sign in</div>
-                <div class="col-6" id="choose-signup">Sign up</div>
+            <div class="row mb-3 choose text-center">
+                <div class="col-6" id="choose-signin" style="font-weight:bold;cursor:pointer;">Sign in</div>
+                <div class="col-6" id="choose-signup" style="cursor:pointer;">Sign up</div>
             </div>
             <div id="signin">
                 <form method="POST">
@@ -24,7 +24,7 @@
                         <input type="email" name="email" class="form-control" placeholder="Email address">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="fullname" class="form-control" placeholder="Fullname">
+                        <input type="text" name="fullname" class="form-control" placeholder="Fullname">
                     </div>
                     <div class="form-group">
                         <div class="row">
