@@ -1,8 +1,10 @@
 <?php
 
 class User {
-
-    static function signin($login,$passwd){//connection
+    /**
+     * Connexion
+     */
+    static function signin($login,$passwd){
         $req = MySQL::getInstance()->prepare('SELECT user_id , email, passwd FROM user WHERE email = ?');
         $req->execute(array($login));
         $res = $req->Fetch();
@@ -17,10 +19,18 @@ class User {
             return false;
         }
     }
+
+    /**
+     * Déconnecte l'utilisateur
+     */
     static function signout(){
         session_destroy();
     }
-    static function signup($email,$fullname,$passwd){//inscription 
+
+    /**
+     * Inscription
+     */
+    static function signup($email,$fullname,$passwd){ 
         $pwd = password_hash($passwd,PASSWORD_DEFAULT);
         $req = MySQL::getInstance()->prepare('SELECT email FROM user WHERE email= ?');
         $req->execute(array($email));
@@ -33,17 +43,29 @@ class User {
             return false;
         }
     }
-    static function get_user($user_id){//recupérer info d'un utilisateur
+
+    /**
+     * Récupère les infos d'un utilisateur
+     */
+    static function get_user($user_id){
         $req = MySQL::getInstance()->prepare('SELECT email , fullname, date_creation FROM user WHERE id = ?');
         $req->execute(array($user_id));
         return $req->Fetch();
     }
-    static function get_users(){//récupérer info de tous le utilisateur
+
+    /**
+     * Récupère les informations de tous les utilisateurs
+     */
+    static function get_users(){
         $req = MySQL::getInstance()->prepare('SELECT * FROM user');
         $req->execute();
         return $req->FetchAll();
 
     }
+
+    /**
+     * Récupère le nombre d'utilisateurs
+     */
     static function nb_users(){
         $req = MySQL::getInstance()->prepare('SELECT COUNT(*) AS nb FROM user');
         $req->execute();
@@ -51,6 +73,13 @@ class User {
         return $res['nb'];
     }
 
+    /**
+     * Vérifie si l'utilisateur est connecté
+     */
+    static function isLogged() {
+        if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) return $_SESSION['user_id'];
+        else return false;
+    }
 }
 
 ?>
