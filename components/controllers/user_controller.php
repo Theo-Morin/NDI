@@ -44,12 +44,16 @@ switch($uc2)
     break;
     case "change-informations":
         $view = "user/form.php";
+        if(!isset($isLogged)){
+            exit(header('Location: /user/login'));
+        }
+        $user = User::get_user($_SESSION['user_id']);
         if(isset($_POST['email'],$_POST['fullname'],$_POST['verifpasswd'])){
             $email = htmlspecialchars($_POST['email']);
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
             if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
-                if(user::signin($email,$verifpasswd)){
+                if(user::signin($user['email'],$verifpasswd)){
                     user::edit_user($email,$fullname,$verifpasswd);
                 }
                 else $_SESSION['error'] = "Veuillez entrer des identifiants valides";
