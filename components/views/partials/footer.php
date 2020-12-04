@@ -1,4 +1,4 @@
-    <footer class="mt-3">
+    <footer class="m-3">
         <div class="text-center">
             <span class="m-1">Dev by : </span><a href="http://theomorin.fr">Théo Morin</a> | <span>Théo Berthier</span> | <span>Samuel Anyaronke</span>
         </div>

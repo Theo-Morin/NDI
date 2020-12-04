@@ -12,7 +12,10 @@
                         <div class="col">
                             <label for="spot_id">Spot :</label>
                             <select onchange="changeSpot()" name="spot_id" id="spot_id" class="form-control">
-                                <option value="0" selected>Choose your spot</option>
+                                <option selected>Choose your spot</option>
+                                <?php foreach($spots as $spot) { ?>
+                                    <option value="<?= $spot['surf_spot_id'] ?>"><?= $spot['spot_name'] ?> - <?= SpotsLikes::getSpotLikes($spot['surf_spot_id']) ?></option>
+                                <?php } ?>
                                 <option value="new">Nouveau spot</option>
                             </select>
                             <div id="new-spot" style="display: none;">
@@ -40,16 +43,22 @@
                 <div class="card-title">Ma sortie</div>
                 <div class="form-group">
                     <label for="products">Produits utilisés :</label>
+                    <?php foreach($products as $product) { ?>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="products" value="<?= $product['datas_products_id'] ?>" id="p-<?= $product['datas_products_id'] ?>">
+                            <label class="form-check-label" for="p-<?= $product['datas_products_id'] ?>"><?= $product['libelle'] ?></label>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="date_debut">Début de la baignade :</label>
-                            <input type="datetime" name="date_debut" id="date_debut" class="form-control">
+                            <label for="date_entree">Début de la baignade :</label>
+                            <input type="datetime" name="date_entree" id="date_entree" class="form-control">
                         </div>
                         <div class="col">
-                            <label for="date_fin">Fin de la baignade :</label>
-                            <input type="text" name="date_fin" id="date_fin" class="form-control">
+                            <label for="date_sortie">Fin de la baignade :</label>
+                            <input type="text" name="date_sortie" id="date_sortie" class="form-control">
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 <?php
 
 class SurfData {
-    static function saveDatas($city, $spot_id, $products, $date_entree, $date_sortie) {
-        $req = MySQL::getInstance()->prepare('INSERT INTO surf_datas(city, spot, user_id, date_entree, date_sortie)');
-        $req->execute(array($city, $spot, $_SESSION['user_id'], $date_entree, $date_sortie));
+    static function saveDatas($city, $spot_id, $products, $date_entree, $date_sortie, $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile) {
+        $req = MySQL::getInstance()->prepare('INSERT INTO surf_datas(city, surf_spot_id, user_id, date_entree, date_sortie, baigneurs, praticants, bateaux_peche, bateaux_loisir, bateaux_voile) VALUES(?,?,?,?,?,?,?,?,?,?)');
+        $req->execute(array($city, $spot_id, $_SESSION['user_id'], $date_entree, $date_sortie, $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile));
 
         $req = MySQL::getInstance()->prepare('SELECT surf_datas_id FROM surf_datas ORDER BY surf_datas_id DESC LIMIT 1');
         $req->execute();
@@ -13,6 +13,13 @@ class SurfData {
             $req = MySQL::getInstance()->prepare('INSERT INTO used_products_on_ride(surf_datas_id, datas_products_id) VALUES(?,?)');
             $req->execute(array($id, $product));
         }
+    }
+
+    static function getProducts() {
+        $req = MySQL::getInstance()->prepare('SELECT * FROM datas_products ORDER BY libelle');
+        $req->execute();
+
+        return $req->FetchAll();
     }
 
     static function getDatas() {
