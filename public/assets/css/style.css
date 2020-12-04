@@ -1,6 +1,97 @@
-div.my-card {
-    border:1px solid black;
-    border-radius: 5px;
-    background-color:var(--primary);
-    padding:10px;
+:root {
+    --bg-primary:white;
+}
+
+div#loader {
+    position: fixed;
+    z-index: 2;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: white;
+}
+div#loader > h1 {
+    position: absolute;
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    background:var(--bg-primary);
+}
+
+nav {display:flex;flex-direction: row;justify-content: space-between;}
+
+div.menu {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+div.menu > div.card {
+    position: relative;
+    height:30%;
+}
+
+div.home-card {
+    background:var(--primary);
+    color:white;
+    box-shadow: 0px 0px 30px 0px rgba(184,184,184,1);
+    position: relative;
+    min-height:200px;
+    transition: 0.5s;
+}
+
+div.home-card:hover {
+    box-shadow: 0px 0px 40px 0px rgb(114, 114, 114);
+    transition: 0.5s;
+}
+
+div.home-card > div.card-body > img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right:10px;
+    top:50%;
+    transform: translate(0, -50%);
+    opacity:0.75;
+}
+
+div.home-card > div.card-body > i {
+    font-size:50px;
+    color:white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-style: normal;
+}
+
+div.home-card > div.card-body > i.right {
+    right:10px;
+    left:auto;
+    transform: translate(0, -50%);
+}
+
+div.card > div.card-body > div.card-title {
+    font-weight: bold;
+    font-size:1.5rem;
+    font-family: 'Nerko One', cursive;
+}
+
+h4.bottom {margin:0;position: absolute;bottom:1.25rem;left:1.25rem;}
+
+div.card.fst { background:#FFD700; }
+div.card.snd { background:#C0C0C0; }
+div.card.thd { background:#614e1a; }
+
+@media screen and (max-width:1300px) {
+    div.menu {
+        position: relative;
+        top:auto;left:auto;
+        transform: none;
+    }
 }

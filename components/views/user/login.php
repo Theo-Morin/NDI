@@ -1,12 +1,11 @@
 <div class="container">
-    <div class="row">
-        <div class="my-card login-form">
-            <div class="choose">
-                <div id="choose-signin">Sign in</div>
-                <div id="choose-signup">Sign up</div>
+    <div class="card mt-5 home-card login-form">
+        <div class="card-body">
+            <div class="row choose text-center">
+                <div class="col-6" id="choose-signin" style="font-weight:bold;">Sign in</div>
+                <div class="col-6" id="choose-signup">Sign up</div>
             </div>
             <div id="signin">
-                <h1>Sign in</h1>
                 <form method="POST">
                     <div class="form-group">
                         <input type="text" name="login" class="form-control" placeholder="Login (email address)">
@@ -19,8 +18,7 @@
                     </div>
                 </form>
             </div>
-            <div id="signup">
-                <h1>Sign up</h1>
+            <div id="signup" style="display: none;">
                 <form method="POST">
                     <div class="form-group">
                         <input type="email" name="email" class="form-control" placeholder="Email address">
