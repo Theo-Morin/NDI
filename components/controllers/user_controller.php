@@ -44,6 +44,10 @@ switch($uc2)
     break;
     case "change-informations":
         $view = "user/form.php";
+        if(!isset($isLogged)){
+            exit(header('Location: /user/login'));
+        }
+        $user = User::get_user($_SESSION['user_id']);
         if(isset($_POST['email'],$_POST['fullname'],$_POST['verifpasswd'])){
             $email = htmlspecialchars($_POST['email']);
             $fullname = htmlspecialchars($_POST['fullname']);

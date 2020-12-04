@@ -6,10 +6,10 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <input type="email" name="email" class="form-control" placeholder="Email address">
+                            <input type="email" name="email" class="form-control" placeholder="Email address" value="<?= $user['email'] ?>">
                         </div>
                         <div class="col">
-                            <input type="text" name="fullname" class="form-control" placeholder="Fullname">
+                            <input type="text" name="fullname" class="form-control" placeholder="Fullname" value="<?= $user['fullname'] ?>">
                         </div>
                     </div>
                 </div>
