@@ -11,8 +11,14 @@ switch($uc2)
             $login = htmlspecialchars($_POST['login']);
             $passwd = htmlspecialchars($_POST['passwd']);
             if(!empty($login) && !empty($passwd)){
-                user::signin($login,$passwd);
+               if(user::signin($login,$passwd)){
                 exit(header('Location: /home'));
+               }
+               else{
+                $_SESSION['error'] = "Veuillez entrer des identifiants valides";
+                exit(header('Location: /user/login'));
+               }
+
             }
             else{
                 $_SESSION['error'] = "Veuillez remplir toutes les informations nécessaire";

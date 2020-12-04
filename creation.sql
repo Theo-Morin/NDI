@@ -13,7 +13,7 @@ CREATE TABLE datas_products (
 
 CREATE TABLE surf_spot (
     surf_spot_id INT PRIMARY KEY auto_increment,
-    spot_name varchar(255),
+    spot_name  varchar(255),
     lng varchar(10),
     lat varchar(10),
     user_id INT,
