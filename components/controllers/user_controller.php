@@ -49,8 +49,8 @@ switch($uc2)
                 else $_SESSION['error'] = "Veuillez entrer des identifiants valides";
             }
             else $_SESSION['error'] = "Veuillez remplir tous les champs";
+            exit(header('Location: /user/change-informations'));
         }
-        exit(header('Location: /user/change-informations'));
 
     break;
     case "signout":
