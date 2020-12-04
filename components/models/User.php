@@ -54,7 +54,7 @@ class User {
      * Récupère les infos d'un utilisateur
      */
     static function get_user($user_id){
-        $req = MySQL::getInstance()->prepare('SELECT email , fullname, date_creation FROM user WHERE id = ?');
+        $req = MySQL::getInstance()->prepare('SELECT email , fullname, date_creation FROM user WHERE user_id = ?');
         $req->execute(array($user_id));
         return $req->Fetch();
     }

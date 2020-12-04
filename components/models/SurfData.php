@@ -82,8 +82,13 @@ class Spots {
 
 class SpotsLikes {
     static function makeLike($spot_id) {
-        $req = MySQL::getInstance()->prepare('INSERT INTO surf_spot_like(surf_spot_id, user_id) VALUES(?,?)');
-        $req->execute(array($spot_id, $_SESSION['user_id']));
+        $req = MySQL::getInstance()->prepare('SELECT * FROM surf_spot_like WHERE user_id = ? AND surf_spot_id = ?');
+        $req->execute(array($_SESSION['user_id'], $spot_id));
+
+        if($req->RowCount() == 0) {
+            $req = MySQL::getInstance()->prepare('INSERT INTO surf_spot_like(surf_spot_id, user_id) VALUES(?,?)');
+            $req->execute(array($spot_id, $_SESSION['user_id']));
+        }
     }
     static function getUserLikes($user_id) {
         $req = MySQL::getInstance()->prepare('SELECT count(*) as nb FROM surf_spot_like WHERE user_id = ?');
