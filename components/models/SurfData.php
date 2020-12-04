@@ -52,7 +52,7 @@ class Spots {
     }
 
     static function getDatasByLikes() {
-        $req = MySQL::getInstance()->prepare('SELECT surf_spot_id, spot_name, lng, lat, user_id, date_creation, count(*) as nbLikes FROM surf_spot NATURAL JOIN surf_spot_like GROUP BY (surf_spot_id, spot_name, lng, lat, user_id, date_creation) ORDER BY nbLikes DESC');
+        $req = MySQL::getInstance()->prepare('SELECT surf_spot_id, spot_name, lng, lat, user_id, date_creation, count(*) as nbLikes FROM surf_spot NATURAL JOIN surf_spot_like GROUP BY (surf_spot_id) ORDER BY nbLikes DESC');
         $req->execute();
 
         return $req->FetchAll();

@@ -4,7 +4,7 @@
         <div class="col-4">
             <div class="card home-card fst">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[0]['spot_name'] ?></div>
                     <i>1st</i>
                 </div>
             </div>
@@ -12,7 +12,7 @@
         <div class="col-4">
             <div class="card home-card snd">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[1]['spot_name'] ?></div>
                     <i>2nd</i>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="col-4">
             <div class="card home-card thd">
                 <div class="card-body">
-                    <div class="card-title">Plage arcachon</div>
+                    <div class="card-title"><?= $spots[2]['spot_name'] ?></div>
                     <i>3rd</i>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <?php foreach($spots as $spot) { ?> 
             <tr>
                 <th scope="row"><?= $spot['surf_spot_id'] ?></th>
-                <td><?= $spot['name'] ?></td>
+                <td><?= $spot['spot_name'] ?></td>
                 <td><?= $spot['lng'] ?></td>
                 <td><?= $spot['lat'] ?></td>
                 <td><?= $spot['nbLikes'] ?></td>

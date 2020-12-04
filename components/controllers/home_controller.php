@@ -14,6 +14,10 @@ switch($uc1)
         }
         if(isset($_SESSION['city'])) {
             $weather = MeteoAPI::getCurrentWeather($_SESSION['city']);
+            if($weather['location'] == NULL) {
+                $_SESSION['city'] = "Bordeaux";
+                $weather = MeteoAPI::getCurrentWeather($_SESSION['city']);
+            }
         } else $weather = MeteoAPI::getCurrentWeather("Bordeaux");
     break;
     case "spots":

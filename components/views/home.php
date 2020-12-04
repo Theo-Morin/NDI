@@ -5,7 +5,15 @@
                 <div class="col-xl-8 col-lg-6 col-md-0"></div>
                 <div class="col-xl-4 col-lg-6">
                     <div class="form-group">
-                        <input type="text" name="city" placeholder="Choisir une ville" value="<?php if(isset($_SESSION['city'])) echo $_SESSION['city']; ?>" class="form-control">
+                        <div class="row">
+                            <div class="col-8">
+                                <input type="text" name="city" placeholder="Choisir une ville" value="<?php if(isset($_SESSION['city'])) echo $_SESSION['city']; ?>" class="form-control">
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
