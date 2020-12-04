@@ -8,7 +8,7 @@ class MySQL {
     private static $serveur='mysql:host=localhost';
     private static $bdd='dbname=ndi';
     private static $user='root';
-    private static $mdp='root';
+    private static $mdp='';
     private static $db;
     private static $unPdo = null;
 

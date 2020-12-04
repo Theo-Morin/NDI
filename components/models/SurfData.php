@@ -59,7 +59,7 @@ class Spots {
     }
 
     static function getNbSpots() {
-        $req = MySQL::getInstance()->prepare('SELECT count(*) as nb FROM surf_spot ORDER BY id DESC');
+        $req = MySQL::getInstance()->prepare('SELECT count(*) as nb FROM surf_spot ORDER BY surf_spot_id DESC');
         $req->execute();
 
         return $req->Fetch()['nb'];
