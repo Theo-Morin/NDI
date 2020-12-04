@@ -10,7 +10,7 @@ switch($uc2)
             $login = htmlspecialchars($_POST['login']);
             $passwd = htmlspecialchars($_POST['passwd']);
             if(!empty($login) && !empty($passwd)){
-                user::signin($login,$passwd);
+                //user::signin($login,$passwd);
             }
             else{
                 $_SESSION['error'] = "Veuillez remplir toutes les informations nécessaire";
@@ -23,7 +23,7 @@ switch($uc2)
             $confpasswd = htmlspecialchars($_POST['confpasswd']);
 
             if($passwd == $confpasswd){
-                user::signup($email,$fullname,$passwd);
+                //user::signup($email,$fullname,$passwd);
             }else{
                 $_SESSION['error'] = "Les mots de passe ne correspondent pas";
             }
@@ -37,7 +37,7 @@ switch($uc2)
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
             if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
-                user::signin($email,$fullname,$verifpasswd);
+                //user::signin($email,$fullname,$verifpasswd);
             }
         }
 

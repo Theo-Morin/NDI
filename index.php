@@ -14,7 +14,7 @@ $view = 'error_docs/404.php';
 
 require_once './components/controllers/home_controller.php';
 
-$isLogged = User::isLogged();
+//$isLogged = User::isLogged();
 
 $stylesheet = [];
 $stylesheet[] = "/public/vendors/bootstrap/bootstrap.css";
