@@ -43,7 +43,8 @@
                 <td><?= $spot['spot_name'] ?></td>
                 <td><?= $spot['lng'] ?></td>
                 <td><?= $spot['lat'] ?></td>
-                <td><?= $spot['nbLikes'] ?></td>
+                <td><?= $spot['nbLikes'] ?> - 
+            <?php if(isset($_SESSION['user_id'])) { ?><a href="/like/<?= $spot['surf_spot_id'] ?>"><button class="btn btn-warning"><i class="fas fa-heart"></i></button></a><?php } ?></td>
             </tr>
             <?php } ?>
         </tbody>

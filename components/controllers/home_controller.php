@@ -24,12 +24,12 @@ switch($uc1)
     case "spots":
         $title .= "Spots";
         $view = "spots.php";
-        $spots = Spots::getDatasByLikes();
+        $spots = Spots::getDatas();
     break;
     case "informations-surf":
         $view = "Remplir le formulaire";
         if(!isset($_SESSION['user_id'])) exit(header('Location: /user/login'));
-        $title += "Renseignez vos informations de Ride";
+        $title .= "Renseignez vos informations de Ride";
         $view = "form.php";
         $spots = Spots::getDatas();
         $products = SurfData::getProducts();
@@ -41,8 +41,8 @@ switch($uc1)
         if(isset($_POST['city'], $_POST['date_entree'], $_POST['date_sortie'])) {
             $city = htmlspecialchars($_POST['city']);
             $products = htmlspecialchars($_POST['products']);
-            $date_entree = DateTime::createFromFormat("d/m/Y h:i", htmlspecialchars($_POST['date_entree']));
-            $date_sortie = DateTime::createFromFormat("d/m/Y h:i", htmlspecialchars($_POST['date_sortie']));
+            $date_entree = date("Y-m-d H:i:s", strtotime(htmlspecialchars($_POST['date_entree'])));
+            $date_sortie = date("Y-m-d H:i:s", strtotime(htmlspecialchars($_POST['date_sortie'])));
             if(isset($_POST['spot_id']) && $_POST['spot_id'] != "new" && $_POST['spot_id'] != 0) {
                 $spot_id = htmlspecialchars($_POST['spot_id']);
             }
@@ -65,7 +65,7 @@ switch($uc1)
                 $bateaux_peche = isset($_POST['bateaux_peche']) ? htmlspecialchars($_POST['bateaux_peche']) : 0;
                 $bateaux_loisir = isset($_POST['bateaux_loisir']) ? htmlspecialchars($_POST['bateaux_loisir']) : 0;
                 $bateaux_voile = isset($_POST['bateaux_voile']) ? htmlspecialchars($_POST['bateaux_voile']) : 0;
-                SurfData::saveDatas($city, $spot_id, $products, $date_entree->format("Y-m-d h:i:s"), $date_sortie->format("Y-m-d h:i:s"), $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile);
+                SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie, $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile);
                 exit(header('Location: /home'));
             }
             else {
@@ -73,6 +73,13 @@ switch($uc1)
                 exit(header('Location: /informations-surf'));
             }
         }
+    break;
+    case "like":
+        $uc2 = isset($_GET['uc2']) ? htmlspecialchars($_GET['uc2']) : exit(header('Location: /home'));
+        if(!isset($_SESSION['user_id'])) exit(header('Location: /user/login'));
+
+        SpotsLikes::makeLike($uc2);
+        exit(header('Location: /spots'));
     break;
     case "user":
         require "user_controller.php";
