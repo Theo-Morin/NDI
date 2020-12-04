@@ -44,13 +44,16 @@ switch($uc2)
     break;
     case "change-informations":
         $view = "user/form.php";
+        $title .= "Change informations";
         $user = User::get_user($_SESSION['user_id']);
         if(isset($_POST['email'],$_POST['fullname'],$_POST['verifpasswd'])){
             $email = htmlspecialchars($_POST['email']);
             $fullname = htmlspecialchars($_POST['fullname']);
             $verifpasswd = htmlspecialchars($_POST['verifpasswd']);
             if(!empty($email) && !empty($verifpasswd) && !empty($fullname)){
-                user::edit_user($email,$fullname,$verifpasswd);
+                if(!user::edit_user($email,$fullname,$verifpasswd)) {
+                    $_SESSION['error'] = "Mot de passe incorrect";
+                }
             }
             else $_SESSION['error'] = "Veuillez remplir tous les champs";
             exit(header('Location: /user/change-informations'));
