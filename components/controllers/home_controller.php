@@ -65,7 +65,7 @@ switch($uc1)
                 $bateaux_peche = isset($_POST['bateaux_peche']) ? htmlspecialchars($_POST['bateaux_peche']) : 0;
                 $bateaux_loisir = isset($_POST['bateaux_loisir']) ? htmlspecialchars($_POST['bateaux_loisir']) : 0;
                 $bateaux_voile = isset($_POST['bateaux_voile']) ? htmlspecialchars($_POST['bateaux_voile']) : 0;
-                SurfData::saveDatas($city, $spot_id, $products, $date_entree, $date_sortie, $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile);
+                SurfData::saveDatas($city, $spot_id, $products, $date_entree->format("Y-m-d h:i:s"), $date_sortie->format("Y-m-d h:i:s"), $baigneurs, $praticants, $bateaux_peche, $bateaux_loisir, $bateaux_voile);
                 exit(header('Location: /home'));
             }
             else {
